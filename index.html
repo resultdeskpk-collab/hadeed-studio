@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>try{if(sessionStorage.getItem("hds_seen")||location.hash)document.documentElement.classList.add("fast");sessionStorage.setItem("hds_seen","1")}catch(e){}</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Hadeed Digital Studio</title>
@@ -9,12 +10,54 @@
 <meta property="og:description" content="Built strong. Built forward. Websites, online stores, web apps and mobile apps.">
 <meta name="theme-color" content="#152A2C">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 695 695'%3E%3Crect width='695' height='695' rx='150' fill='%231E3A3C'/%3E%3Crect x='159' y='159' width='101' height='377' fill='%23EFE7DA'/%3E%3Crect x='434' y='159' width='102' height='116' fill='%23EFE7DA'/%3E%3Crect x='434' y='420' width='102' height='116' fill='%23EFE7DA'/%3E%3Cpolygon points='258,319 434,319 434,286 622,348 434,409 434,377 258,377' fill='%23D9895B'/%3E%3C/svg%3E">
-<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* photo thumbnails for projects */
+.thumb{position:relative;padding:0;display:block;overflow:hidden}
+.thumb::before{display:none}
+.thumb img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.pcard:hover .thumb img.bg{transform:scale(1.06)}
+.thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,8,7,.55) 0%,rgba(10,8,7,.05) 35%,rgba(10,8,7,.15) 60%,rgba(10,8,7,.7) 100%);pointer-events:none}
+.tbrand{position:absolute;left:22px;top:20px;z-index:2;color:#fff;line-height:1;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.tbrand small{display:block;font-family:var(--f-body);font-size:9.5px;letter-spacing:.36em;margin-top:7px;opacity:.9;font-weight:600}
+.tbrand.ra{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:600;font-size:26px;letter-spacing:.2em}
+.tbrand.sh{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:28px}
+.fchip{position:absolute;z-index:2;display:grid;gap:3px;padding:11px 13px;border-radius:14px;background:rgba(255,253,249,.94);color:#221A17;font-family:var(--f-body);font-size:12.5px;line-height:1.3;box-shadow:0 18px 40px rgba(0,0,0,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:bob 6s ease-in-out infinite;max-width:230px}
+.fchip .ck{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#A8834A;font-weight:700}
+.fchip b{font-size:14px;font-weight:600}
+.fchip b.big{font-family:"Bodoni Moda",Georgia,serif;font-size:30px;color:#7A1F2E;line-height:1}
+.fchip span{color:#6B5F58}
+.fchip .pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.fchip .pills i{font-style:normal;font-size:10.5px;padding:2px 7px;border-radius:999px;background:#EBDDC6;color:#5A4320}
+.fchip.dark{background:rgba(122,31,46,.95);color:#fff}
+.fchip.dark span{color:#F1DCDF}
+.fchip.c-a{left:20px;bottom:24px}
+.fchip.c-b{right:20px;top:72px;text-align:center;animation-delay:-2s}
+.fchip.c-c{right:20px;bottom:24px;animation-delay:-4s}
+.thumb .c-a+.c-c{bottom:auto;top:78px}
+.fchip.menu{min-width:220px}
+.mrow{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding-top:6px;border-top:1px solid rgba(0,0,0,.06)}
+.mrow b{color:#C9822C}
+.mrow em{font-style:normal;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:#F7E7CE;color:#7A4A10}
+.mrow em.on{background:#E8A54B;color:#2A1A0A}
+.fchip.wa{background:#DCF8C6;color:#0B3B1F}
+.fchip.wa .ck{color:#128C7E}
+.fchip.wa span{color:#2E5E3F}
+.fchip.rd{left:16px;bottom:18px;top:auto;background:rgba(255,253,249,.96)}
+.fchip.rd2{right:16px;top:20px;bottom:auto}
+.s3 .fchip b{color:#221A17}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@media (max-width:640px){.fchip{font-size:11.5px;padding:9px 11px;max-width:190px}.fchip.c-b{top:64px}.tbrand.ra{font-size:21px}.tbrand.sh{font-size:23px}.fchip.menu{min-width:190px}}
+@media (prefers-reduced-motion:reduce){.fchip{animation:none}}
+/* returning visitors skip the intro */
+.fast .loader{display:none!important}
+.fast .hero h1 .row span{animation-delay:0s!important}
+</style>
 </head>
 <body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@500&family=Bodoni+Moda:opsz,wght@6..96,600&family=Fraunces:opsz,wght@9..144,600&display=swap">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <style>
 /* Layout: "Teal and Copper". A deep sea-teal stage where the H monogram is real polished copper in 3D. Clean type, hairlines and motion that responds to the visitor. */
 :root{
@@ -480,41 +523,32 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="stage3d">
       <div class="rail" id="rail">
         <article class="pcard">
-          <div class="pshot s1">
-            <div class="phone store"><div class="notch"></div><div class="screen">
-              <div class="top"><span>RUBINA ASAD</span><span>♡ 2</span></div>
-              <div class="banner"><small>NEW SEASON</small><b>The Eid Edit</b></div>
-              <div class="grid">
-                <div class="item"><div style="background:linear-gradient(160deg,#E9D4BC,#C9A584)"></div><p>Embroidered Lawn Kurta</p><b>$38</b></div>
-                <div class="item"><div style="background:linear-gradient(160deg,#EBCB8B,#B9893E)"></div><p>Gold Jhumkas</p><b>$24</b></div>
-                <div class="item"><div style="background:linear-gradient(160deg,#CFD8C8,#93A58D)"></div><p>Silk Dupatta</p><b>$19</b></div>
-                <div class="item"><div style="background:linear-gradient(160deg,#E2B2AC,#B57069)"></div><p>Bangle Set</p><b>$15</b></div>
-              </div>
-            </div></div>
+          <div class="pshot s1 thumb">
+            <img class="bg" src="https://images.unsplash.com/photo-1733470381571-c3d082e68457?w=900&q=65&auto=format&fit=crop" alt="Rubina Asad store preview: model in a red festive outfit" loading="lazy">
+            <span class="tbrand ra">RUBINA ASAD<small>COUTURE · PRÊT</small></span>
+            <div class="fchip c-a"><span class="ck">Occasion Stylist</span><b>Barat · 2 outfits match</b><span class="pills"><i>For Barat</i><i>In budget</i><i>Reds</i></span></div>
+            <div class="fchip c-b"><span class="ck">Find my size</span><b class="big">M ★</b><span>Recommended for you</span></div>
+            <div class="fchip c-c dark"><b>Made to measure</b><span>Stitched to your size · 14 days</span></div>
           </div>
           <div class="pinfo">
             <div class="pmeta"><span class="tag concept">Concept project</span><span class="pkind">Online store</span></div>
             <h3>Rubina Asad</h3>
             <p>A couture store that sells like a personal stylist: it picks outfits for the occasion, finds the right size and takes made-to-measure orders.</p>
-            <div class="pfeat"><span>Occasion Stylist</span><span>Size finder</span><span>Made to measure</span><span>Complete the look</span><span>PKR / USD</span></div><a class="plink" href="store.html">View live demo <svg><use href="#ne"/></svg></a>
+            <div class="pfeat"><span>Occasion Stylist</span><span>Size finder</span><span>Made to measure</span><span>Complete the look</span><span>PKR / USD</span></div><a class="plink" href="/store">View live demo <svg><use href="#ne"/></svg></a>
           </div>
         </article>
         <article class="pcard">
-          <div class="pshot s2">
-            <div class="phone rest" style="transform:rotate(4deg)"><div class="notch"></div><div class="screen">
-              <div class="cover"><b>Saffron House</b></div>
-              <div class="sub"><span>Grill &amp; Karahi</span><i>● Open now</i></div>
-              <div class="dish"><div style="background:radial-gradient(circle,#D9783B,#7A3A1C)"></div><span>Chicken Karahi</span><b>$14</b></div>
-              <div class="dish"><div style="background:radial-gradient(circle,#B8642E,#5A2A12)"></div><span>Seekh Kebab</span><b>$9</b></div>
-              <div class="dish"><div style="background:radial-gradient(circle,#E3B05A,#8A5A1E)"></div><span>Mutton Biryani</span><b>$12</b></div>
-              <div class="order">Order on WhatsApp</div>
-            </div></div>
+          <div class="pshot s2 thumb">
+            <img class="bg" src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=900&q=65&auto=format&fit=crop" alt="Saffron House preview: grilled kebab skewers" loading="lazy">
+            <span class="tbrand sh">Saffron House<small>KARAHI · CHARCOAL GRILL</small></span>
+            <div class="fchip c-a menu"><span class="ck">Menu · Grill</span><div class="mrow"><span>Seekh Kebab</span><b>$9</b><em>+ Add</em></div><div class="mrow"><span>Chicken Karahi</span><b>$14</b><em class="on">Added · 2</em></div></div>
+            <div class="fchip c-c wa"><span class="ck">WhatsApp</span><b>Order sent ✓</b><span>2 × Chicken Karahi · Takeaway</span></div>
           </div>
           <div class="pinfo">
             <div class="pmeta"><span class="tag concept">Concept project</span><span class="pkind">Website</span></div>
             <h3>Saffron House</h3>
             <p>A restaurant website with a digital menu, one-tap WhatsApp ordering and directions to the door.</p>
-            <div class="pfeat"><span>Digital menu</span><span>WhatsApp ordering</span><span>Location</span></div><a class="plink" href="restaurant.html">View live demo <svg><use href="#ne"/></svg></a>
+            <div class="pfeat"><span>Digital menu</span><span>WhatsApp ordering</span><span>Location</span></div><a class="plink" href="/restaurant">View live demo <svg><use href="#ne"/></svg></a>
           </div>
         </article>
         <article class="pcard">
@@ -531,6 +565,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
               </div></div>
               <div class="lbase"></div>
             </div>
+            <div class="fchip c-a rd"><span class="ck">Auto-generated</span><b>42 result cards</b><span>in under a minute</span></div>
+            <div class="fchip c-c rd2"><b>A+ · 92%</b><span>Ayesha Khan · Class 4-B</span></div>
           </div>
           <div class="pinfo">
             <div class="pmeta"><span class="tag real">Real project</span><span class="pkind">Web app</span></div>
@@ -692,6 +728,11 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <script>
 (function(){
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FAST=document.documentElement.classList.contains('fast');
+/* prefetch the demos so they open instantly */
+function pf(u){if(document.querySelector('link[data-pf="'+u+'"]'))return;var l=document.createElement('link');l.rel='prefetch';l.href=u;l.setAttribute('data-pf',u);document.head.appendChild(l)}
+addEventListener('load',function(){setTimeout(function(){pf('/store');pf('/restaurant')},1500)});
+document.querySelectorAll('.plink').forEach(function(a){['pointerenter','touchstart'].forEach(function(ev){a.addEventListener(ev,function(){var h=a.getAttribute('href');if(h&&h.charAt(0)==='/')pf(h)},{passive:true})})});
 var fine=window.matchMedia&&matchMedia('(pointer:fine)').matches;
 
 /* loader counter */
@@ -840,7 +881,7 @@ layout();addEventListener('resize',layout);
 var clock=new THREE.Clock(),intro=0;
 function frame(){
   var t=clock.getElapsedTime();
-  intro=Math.min(1,intro+(t>2.2?.012:0));var e=1-Math.pow(1-intro,3);
+  intro=Math.min(1,intro+(t>(FAST?0:2.2)?.012:0));var e=1-Math.pow(1-intro,3);
   smx+=(mx-smx)*.05;smy+=(my-smy)*.05;
   var u=logo.userData;
   logo.position.set(u.bx+smx*.25,u.by-scrollP*2.2+Math.sin(t*.8)*.08,0);
@@ -860,7 +901,7 @@ frame();
 finish();
 
 function finish(){
-  setTimeout(function(){loader.classList.add('done')},reduce?0:2500);
+  setTimeout(function(){loader.classList.add('done')},(reduce||FAST)?0:2500);
 }
 })();
 </script>

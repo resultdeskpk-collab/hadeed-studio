@@ -6,6 +6,8 @@
 <title>Saffron House</title>
 <meta name="description" content="Saffron House: karahi, charcoal grill and biryani. Concept restaurant website by Hadeed Digital Studio.">
 <meta name="theme-color" content="#1A120D">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=1200&q=65&auto=format&fit=crop" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
@@ -27,8 +29,10 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--saffron);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 
-.demo{background:var(--saffron);color:#2A1A0A;font-size:13px;font-weight:600;text-align:center;padding:8px 14px;padding-top:calc(8px + env(safe-area-inset-top,0px))}
-.demo a{font-weight:700}
+.demo{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#0F0A07;color:#E8D6C0;font-size:13px;padding:8px 14px;padding-top:calc(8px + env(safe-area-inset-top,0px))}
+.back{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;color:#2A1A0A;background:var(--saffron);padding:6px 12px;border-radius:999px;white-space:nowrap}
+.back:hover{background:#F2B65F}
+@media (max-width:560px){.demo span{display:none}}
 header{position:sticky;top:0;z-index:20;background:rgba(26,18,13,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
@@ -126,8 +130,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </style>
 </head>
 <body>
-<div class="demo">Concept website by <a href="index.html">Hadeed Digital Studio</a>. Want one like this? <a href="index.html#contact">Let's talk</a></div>
 <header>
+  <div class="demo"><a class="back" href="/#work">← Back to Hadeed Digital Studio</a><span>Concept website by Hadeed Digital Studio</span></div>
   <div class="wrap bar">
     <a class="logo" href="#top"><i>S</i><b>Saffron House</b></a>
     <nav>
@@ -141,7 +145,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <main id="top">
   <div class="hero">
-    <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=1600&q=70&auto=format&fit=crop" alt="Grilled kebab skewers with bread and salad">
+    <img src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=1200&q=65&auto=format&fit=crop" alt="Grilled kebab skewers with bread and salad" fetchpriority="high">
     <div class="wrap">
       <span class="eyebrow">Karahi · Charcoal grill · Biryani</span>
       <h1>Slow-cooked flavour, <em>straight from the coals.</em></h1>
@@ -207,7 +211,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Saffron House (concept)</span><span>Website by <a href="index.html">Hadeed Digital Studio</a></span></div></footer>
+<footer><div class="wrap"><span>© 2026 Saffron House (concept)</span><span><a href="/#work">← Back to Hadeed Digital Studio</a> · Website by <a href="/">Hadeed Digital Studio</a></span></div></footer>
 
 <div class="cartbar" id="cartbar" hidden><div><b id="cb-count">0 items</b><small id="cb-total">$0</small></div><button class="btn btn-s btn-sm" type="button" id="viewcart">View order</button></div>
 <div class="sheet" id="sheet" hidden>
