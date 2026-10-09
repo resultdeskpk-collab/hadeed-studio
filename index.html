@@ -162,9 +162,9 @@ section{padding-block:110px}
 .carousel-nav button:hover{background:var(--gold);color:#1A1410}
 .carousel-nav svg{width:18px;height:18px}
 .stage3d{perspective:1400px;perspective-origin:50% 40%}
-.rail{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px max(20px,calc((100vw - 1240px)/2 + 20px)) 40px;scrollbar-width:none;-webkit-overflow-scrolling:touch;transform-style:preserve-3d}
+.rail{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:20px max(20px,calc((100vw - 1240px)/2 + 20px)) 40px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rail::-webkit-scrollbar{display:none}
-.pcard{flex:0 0 min(84vw,520px);scroll-snap-align:center;border-radius:28px;background:linear-gradient(160deg,#1F393B,#18302F);box-shadow:inset 0 0 0 1px var(--line),0 30px 60px rgba(0,0,0,.3);overflow:hidden;transform-style:preserve-3d;will-change:transform;transition:transform .15s linear}
+.pcard{flex:0 0 min(84vw,520px);scroll-snap-align:center;border-radius:28px;background:linear-gradient(160deg,#1F393B,#18302F);box-shadow:inset 0 0 0 1px var(--line),0 30px 60px rgba(0,0,0,.3);overflow:hidden;will-change:transform;transition:transform .15s linear}
 .pshot{position:relative;height:400px;display:grid;place-items:center;overflow:hidden}
 .pshot::before{content:"";position:absolute;width:80%;aspect-ratio:1;border-radius:50%;filter:blur(70px);opacity:.5}
 .pshot.s1::before{background:#C9875A}.pshot.s2::before{background:#B8452A}.pshot.s3::before{background:#5B6BFF}
@@ -725,7 +725,7 @@ if('IntersectionObserver' in window&&!reduce){
 var rail=document.getElementById('rail'),cards=[].slice.call(rail.children);
 function tilt(){var mid=rail.getBoundingClientRect().left+rail.clientWidth/2;
   cards.forEach(function(cd){var r=cd.getBoundingClientRect(),d=((r.left+r.width/2)-mid)/(r.width);d=Math.max(-1.6,Math.min(1.6,d));
-    cd.style.transform='rotateY('+(-d*28)+'deg) translateZ('+(-Math.abs(d)*120)+'px) scale('+(1-Math.abs(d)*.06)+')';
+    cd.style.transform='perspective(1400px) rotateY('+(-d*24)+'deg) scale('+(1-Math.abs(d)*.08)+')';
     cd.style.opacity=1-Math.min(.45,Math.abs(d)*.3)})}
 if(!reduce){rail.addEventListener('scroll',function(){requestAnimationFrame(tilt)},{passive:true});addEventListener('resize',tilt);tilt()}
 function step(dir){var w=cards[0].getBoundingClientRect().width+28;rail.scrollBy({left:dir*w,behavior:reduce?'auto':'smooth'})}
